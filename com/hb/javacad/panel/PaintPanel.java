@@ -176,11 +176,11 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
                                 int shapeEndY = shapeSet.getEndPoint().y;
 
                                 if (selectedStartX >= shapeStartX && selectedStartX <= shapeEndX && selectedStartY >= shapeStartY && selectedStartY <= shapeEndY) {
+                                    //设置选择图形在要吸附的图形范围之内
+                                    this.isInArea = true;
                                     Point newStartPoint = new Point();
                                     newStartPoint.setLocation(shapeEndX, shapeEndY);
                                     selectedShape.setStartPoint(newStartPoint);
-                                    //设置选择图形在要吸附的图形范围之内
-                                    this.isInArea = true;
                                 }
                             }
 
@@ -197,9 +197,9 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
                     break;
             }
             //这里是用来消除多重选择
-            for (int i = 0; i < current.size(); i++) {
+            /*for (int i = 0; i < current.size(); i++) {
                 current.get(i).setState(ShapeSet.UNSELECTED);
-            }
+            }*/
         }
     }
 
@@ -511,7 +511,7 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
     /**
      * @return 到得选择图形的复本
      */
-    private synchronized ShapeSet whenSelect() {
+    private  ShapeSet whenSelect() {
         index = getIndex(startPoint);
         ShapeSet self = null;
         if (index != -1) {

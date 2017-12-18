@@ -26,7 +26,6 @@ public class Rectangle extends ShapeSet {
 		g.drawRect(Math.min(startPoint.x, endPoint.x),Math.min(startPoint.y, endPoint.y),Math.abs(endPoint.x-startPoint.x),Math.abs(endPoint.y-startPoint.y));
 	}
 
-	//TODO 增加组概念代码
 	@Override
 	public ShapeSet catchShape() {
 		Rectangle rectangle = new Rectangle(startPoint,endPoint,color,group);
