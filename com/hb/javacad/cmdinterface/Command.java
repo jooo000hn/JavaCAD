@@ -9,4 +9,5 @@ public interface Command {
 	int TRIANGLE = 5;
 	int PENTAGON = 6;
 	int FIVEPOINTS = 7;
+	int BROKENLINE = 8;
 }

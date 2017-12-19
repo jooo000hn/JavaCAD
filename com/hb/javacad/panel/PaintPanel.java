@@ -195,6 +195,10 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
                         }
                     }
                     break;
+                case Command.BROKENLINE:
+                    //TODO 这里需要画折线。 。 。
+                    new Line(this.startPoint, this.endPoint, this.color, MainFrame.groupId).draw(g, true);
+                    break;
             }
             //这里是用来消除多重选择
             /*for (int i = 0; i < current.size(); i++) {

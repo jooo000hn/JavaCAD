@@ -46,6 +46,7 @@ public class MainFrame extends javax.swing.JFrame {
     private ShapeButton ellipseButton;
     private ShapeButton rectButton;
     private ShapeButton lineButton;
+    private ShapeButton brokenLineButton;
     private ShapeButton selectButton;
     private JToolBar drawToolBar;
     private JButton newButton;
@@ -178,6 +179,18 @@ public class MainFrame extends javax.swing.JFrame {
                     lineButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent evt) {
                             lineButtonActionPerformed(evt);
+                        }
+                    });
+                }
+                {
+                    brokenLineButton = new ShapeButton();
+                    drawToolBar.add(brokenLineButton);
+                    //折线
+                    brokenLineButton.setText("折线");
+                    toolbuttonGroup.add(brokenLineButton);
+                    brokenLineButton.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent evt) {
+                            brokenLineButtonActionPerformed(evt);
                         }
                     });
                 }
@@ -456,6 +469,12 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void lineButtonActionPerformed(ActionEvent evt) {
         this.printPanel.setCommand(Command.LINE);
+        this.printPanel.repaint();
+    }
+
+    private void brokenLineButtonActionPerformed(ActionEvent evt) {
+        System.out.println("点击折线按钮了");
+        this.printPanel.setCommand(Command.BROKENLINE);
         this.printPanel.repaint();
     }
 
