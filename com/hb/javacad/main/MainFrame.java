@@ -473,7 +473,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     private void brokenLineButtonActionPerformed(ActionEvent evt) {
-        System.out.println("点击折线按钮了");
         this.printPanel.setCommand(Command.BROKENLINE);
         this.printPanel.repaint();
     }
