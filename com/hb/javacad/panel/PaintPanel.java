@@ -25,6 +25,22 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
     private Point startPoint;
     private Point endPoint;
 
+    public Point getStartPoint() {
+        return startPoint;
+    }
+
+    public void setStartPoint(Point startPoint) {
+        this.startPoint = startPoint;
+    }
+
+    public Point getEndPoint() {
+        return endPoint;
+    }
+
+    public void setEndPoint(Point endPoint) {
+        this.endPoint = endPoint;
+    }
+
     //undo和redo的存取器
     public ArrayList<ShapeSet> current = new ArrayList<>();
     public ArrayList<ShapeSet> groupShape = new ArrayList<>();
@@ -201,9 +217,9 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
                     break;
             }
             //这里是用来消除多重选择
-            /*for (int i = 0; i < current.size(); i++) {
+            for (int i = 0; i < current.size(); i++) {
                 current.get(i).setState(ShapeSet.UNSELECTED);
-            }*/
+            }
         }
     }
 
@@ -253,8 +269,8 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
                 break;
             case Command.BROKENLINE:
                 //这里画折线。 。 。
-                current.add(new Line(this.startPoint, this.endPoint, this.color, MainFrame.groupId));
-                if(e.getPoint() != null){
+                if(current.size() > 0){
+                    current.add(new Line(this.startPoint, this.endPoint, this.color, MainFrame.groupId));
                     this.startPoint = e.getPoint();
                 }
                 removeTail();
